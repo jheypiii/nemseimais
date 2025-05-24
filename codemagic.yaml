@@ -6,13 +6,15 @@ workflows:
       xcode: "latest"    # Para iOS (opcional)
 
     scripts:
-      - name: Install Dependencies
-        script: |
-          flutter pub get
+        - name: Migrate to Android v2 Embedding
+          script: |
+            flutter clean
+            flutter pub upgrade
+            cd android && ./gradlew clean && cd ..
 
-      - name: Build Android App Bundle (AAB)
-        script: |
-          flutter build appbundle --release
+        - name: Build Android App Bundle (AAB)
+          script: |
+            flutter build appbundle --release
 
     artifacts:
       - build/app/outputs/bundle/**/*.aab  # Caminho do arquivo de saída

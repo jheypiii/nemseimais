@@ -1,1 +1,10 @@
-// Raiz do build.gradle
+android {
+    compileSdkVersion 34
+
+    defaultConfig {
+        applicationId "com.jheypiii.provasmart"
+        minSdkVersion 21
+        targetSdkVersion 34
+        multiDexEnabled true
+    }
+}// Raiz do build.gradle
