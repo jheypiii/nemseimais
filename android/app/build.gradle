@@ -1,1 +1,7 @@
 // App build.gradle simulado
+android {
+    defaultConfig {
+        // Adicione esta linha:
+        multiDexEnabled true
+    }
+}
