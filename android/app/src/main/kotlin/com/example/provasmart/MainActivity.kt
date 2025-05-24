@@ -1,6 +1,6 @@
-package com.example.provasmart
+package com.jheypiii.provasmart
 
 import io.flutter.embedding.android.FlutterActivity
 
-class MainActivity: FlutterActivity() {
+class MainActivity : FlutterActivity() {
 }
