@@ -1,0 +1,25 @@
+workflows:
+  android-workflow:
+    name: Build Android App
+    environment:
+      flutter: "stable"  # Versão do Flutter
+      xcode: "latest"    # Para iOS (opcional)
+
+    scripts:
+      - name: Install Dependencies
+        script: |
+          flutter pub get
+
+      - name: Build Android App Bundle (AAB)
+        script: |
+          flutter build appbundle --release
+
+    artifacts:
+      - build/app/outputs/bundle/**/*.aab  # Caminho do arquivo de saída
+      - scripts:
+          - name: Fix Manifest
+            script: |
+              # Remove caracteres inválidos
+              sed -i '' 's/\r$//' android/app/src/main/AndroidManifest.xml
+              # Valida o XML
+              xmllint --noout android/app/src/main/AndroidManifest.xml
